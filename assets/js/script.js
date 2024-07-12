@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Add resume path to resume download
     let resume_link = document.getElementById('resume');
-    let resume_href = 'file:assets/'.concat(resume_name);
+    let resume_href = 'assets/'.concat(resume_name);
     resume_link.setAttribute('href', resume_href);
 
     //Add email to submit email href
