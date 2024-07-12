@@ -119,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let resume_link = document.getElementById('resume');
     let resume_href = 'file:assets/'.concat(resume_name);
     resume_link.setAttribute('href', resume_href);
-    resume_link.setAttribute('download', resume_name);
 
     //Add email to submit email href
     let email_link = document.getElementById('email-link');
