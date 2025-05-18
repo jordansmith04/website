@@ -22,7 +22,7 @@ const employmentHistory = [
     { id: 3, 
         title: 'Backend / Platform Engineer', 
         company: 'Charter Communications', 
-        years: '2021 - 2022', 
+        years: '2021 - 2023', 
         description: 'Developing CI/CD for and enhancing software supporting the creation, management and cancellation of service appointments.',
         project: 'Service appointments and equipment management', 
         impact:[
