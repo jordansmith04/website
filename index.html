@@ -1,618 +1,633 @@
-<!DOCTYPE HTML>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Jordan Smith Website</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jordan Smith | Professional Profile</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Define Inter font and smooth scrolling */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f7f9fb;
+        }
+
+        /* Styling for the active navigation link */
+        .nav-link.active {
+            font-weight: 700;
+            color: #4f46e5; /* indigo-600 */
+            border-bottom: 3px solid #4f46e5;
+        }
+        
+        /* Tailwind Safelist for dynamic colors (Ensures Tailwind includes necessary classes) */
+        .border-indigo-500, .border-sky-500, .border-emerald-500, .border-red-500, .border-teal-500, .border-yellow-500, .border-violet-500, .border-rose-500, .border-purple-500, .border-blue-500,
+        .text-indigo-700, .text-sky-700, .text-emerald-700, .text-red-700, .text-teal-700, .text-yellow-700, .text-violet-700, .text-rose-700, .text-purple-700, .text-blue-700,
+        .hover\:ring-indigo-300, .hover\:ring-sky-300, .hover\:ring-emerald-300, .hover\:ring-red-300, .hover\:ring-teal-300, .hover\:ring-yellow-300, .hover\:ring-violet-300, .hover\:ring-rose-300, .hover\:ring-purple-300, .hover\:ring-blue-300 {}
+    </style>
 </head>
+<body class="min-h-screen flex flex-col items-center">
+    
+    <!-- Navigation Bar (Sticky and Responsive) -->
+    <nav class="sticky top-0 z-50 w-full bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo/Title (Click to go home/portfolio) -->
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-gray-900 cursor-pointer" onclick="navigate('portfolio')">
+                        Jordan Smith <span class="text-indigo-600 font-extrabold">DevOps</span>
+                    </span>
+                </div>
+                <!-- Desktop Navigation Links -->
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <!-- Links use JS navigate() function instead of standard href -->
+                    <button class="nav-link px-1 pt-1 text-sm font-medium text-gray-500 hover:text-indigo-600 border-b-2 border-transparent transition duration-150" onclick="navigate('resume')">Resume & Skills</button>
+                    <button class="nav-link px-1 pt-1 text-sm font-medium text-gray-500 hover:text-indigo-600 border-b-2 border-transparent transition duration-150" onclick="navigate('work_experience')">Experience</button>
+                    <button class="nav-link active px-1 pt-1 text-sm font-medium text-gray-500 hover:text-indigo-600 border-b-2 border-transparent transition duration-150" onclick="navigate('portfolio')">Portfolio</button>
+                    <button class="nav-link px-1 pt-1 text-sm font-medium text-gray-500 hover:text-indigo-600 border-b-2 border-transparent transition duration-150" onclick="navigate('about_me')">About Me</button>
+                    <button class="nav-link px-1 pt-1 text-sm font-medium text-gray-500 hover:text-indigo-600 border-b-2 border-transparent transition duration-150" onclick="navigate('contact')">Contact</button>
+                </div>
+                <!-- Mobile Menu Button (Placeholder) -->
+                <div class="flex items-center sm:hidden">
+                    <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        <!-- Icon Placeholder -->
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-<body class="is-preload">
+    <!-- Main Content Container (Content Swaps Here) -->
+    <div id="content-area" class="w-full max-w-7xl bg-white shadow-2xl rounded-3xl p-6 sm:p-12 my-8 md:my-10">
+        <!-- Dynamic Page Content is injected by JavaScript -->
+        <div class="text-center p-12 text-gray-500">Loading content...</div>
+    </div>
 
-	<!-- Header -->
-	<section id="header">
-		<header>
-			<span class="image avatar"><img src="images/headshot.jpeg" alt="" /></span>
-			<h1 id="logo"><a href="#">Jordan Smith</a></h1>
-			<p>DevOps, Developer and Tester</p>
-		</header>
-		<nav id="nav">
-			<ul>
-				<li><a href="#about" class="active">About</a></li>
-				<li><a href="#skills">Skills</a></li>
-				<li><a href="#certs">Education / Certifications</a></li>
-				<li><a href="#employment">Employment</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-		</nav>
-		<!-- <footer>
-			<ul class="icons">
-				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-				<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-				<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-			</ul>
-		</footer> -->
-	</section>
+    <!-- Footer -->
+    <footer class="w-full max-w-7xl px-4 py-6 text-center text-gray-400 text-sm">
+        <p id="footer"><script>document.getElementById('footer').innerHTML = `&copy; ${new Date().getFullYear()} Jordan Smith. Infrastructure as Code Evangelist.`</script> </p>
+    </footer>
 
-	<!-- Wrapper -->
-	<div id="wrapper">
+    <script>
+        // --- Centralized Project Data Structure ---
+        const completed_projects = [
+            {
+                title: "1. Terraform AWS Infrastructure",
+                repo: "terraform-aws-infrastructure",
+                description: "Designed and provisioned a full AWS environment (VPC, subnets, ALB, EC2, RDS, S3) using Terraform, ensuring secure access control via IAM and utilizing reusable modules.",
+                primaryColor: "indigo",
+                artifacts: [
+                    { text: "Repository", description: "terraform-aws-infrastructure repository in Github", link: "https://github.com/jordansmith04/terraform-aws-infrastructure", colors: { bg: "bg-indigo-100", text: "text-indigo-800" } },
+                    { text: "Main.tf", description: "Implementation of modules in main.tf", link: "https://github.com/jordansmith04/terraform-aws-infrastructure/blob/main/main.tf", colors: { bg: "bg-orange-100", text: "text-orange-800" } },
+                    { text: "Modules", description: "Modules of each service implemented in AWS", link: "https://github.com/jordansmith04/terraform-aws-infrastructure/tree/main/modules", colors: { bg: "bg-cyan-100", text: "text-cyan-800" } },
+                    { text: "README.md", description: "The README for the project explaining all the details", link: "https://github.com/jordansmith04/terraform-aws-infrastructure/blob/main/README.md", colors: { bg: "bg-purple-100", text: "text-purple-800" } }
+                ]
+            },
+            {
+                title: "2. Multi-platform CI/CD Pipeline",
+                repo: "multi-ci-cd-demo",
+                description: "Implemented automated CI/CD pipelines through Github Actions, Gitlab CI, AWS Pipeline, and Jenkins, then deploying Docker containerized workloads to AWS ECS for zero-downtime releases.",
+                primaryColor: "sky",
+                artifacts: [
+                    { text: "Github Actions", description: "CI/CD using Github Actions workflow", link: "https://github.com/jordansmith04/multi-ci-cd-demo/tree/main/Github-CICD", colors: { bg: "bg-emerald-100", text: "text-emerald-800" } },
+                    { text: "Gitlab CI", description: "CI/CD using Gitlab stages in .gitlab-ci.yml", link: "https://github.com/jordansmith04/multi-ci-cd-demo/tree/main/Gitlab-CICD", colors: { bg: "bg-pink-100", text: "text-pink-800" } },
+                    { text: "AWS CodePipeline", description: "CI/CD using AWS CodeBuild, CodeDeploy, and helper scripts", link: "https://github.com/jordansmith04/multi-ci-cd-demo/tree/main/AWSCodeBuildAndDeploy-CICD", colors: { bg: "bg-lime-100", text: "text-lime-800" } },
+                    { text: "README.md", description: "Repository readme", link: "https://github.com/jordansmith04/multi-ci-cd-demo", colors: { bg: "bg-sky-100", text: "text-sky-800" } },
+                ]
+            },
+            {
+                title: "3. Kubernetes on AWS (EKS)",
+                repo: "eks-app-hpa",
+                description: "Deployed a production-grade microservice on Amazon EKS using Helm, configured autoscaling with HPA, and integrated the AWS LoadBalancer Controller.",
+                primaryColor: "emerald",
+                artifacts: [
+                    { text: "Helm charts for app deployment", description: "Helm directory showing templates and values", link: "https://github.com/jordansmith04/eks-app-hpa/tree/main/helm", colors: { bg: "bg-emerald-100", text: "text-emerald-800" } },
+                    { text: "Helm resource configurations", description: "HPA and ALB Controller configuration values for Helm", link: "https://github.com/jordansmith04/eks-app-hpa/blob/main/helm/values.yaml", colors: { bg: "bg-yellow-100", text: "text-yellow-800" } },
+                    { text: "Terraform for IAM Role", description: "Load Balancer service account and OIDC provider", link: "https://github.com/jordansmith04/eks-app-hpa/blob/main/terraform/main.tf", colors: { bg: "bg-blue-100", text: "text-blue-800" } },
+                    { text: "README.md", description: "Repository readme", link: "https://github.com/jordansmith04/eks-app-hpa", colors: { bg: "bg-red-100", text: "text-red-800" } },
+                ]
+            },
+            {
+                title: "4. EKS Observability Stack - Metrics, Logs, Traces",
+                repo: "k8s-observability-stack",
+                description: "Built an observability platform using Terraform, Prometheus, Grafana, and Loki to monitor Kubernetes clusters and applications deployed on EKS.",
+                primaryColor: "red",
+                artifacts: [
+                    { text: "Helm charts", description: "Helm charts to standardize deployments", link: "https://github.com/jordansmith04/k8s-observability-stack/tree/main/helm", colors: { bg: "bg-red-100", text: "text-red-800" } },
+                    { text: "EKS Terraform", description: "Infrastructure-as-code to create VPC and EKS", link: "https://github.com/jordansmith04/k8s-observability-stack/tree/main/terraform", colors: { bg: "bg-violet-100", text: "text-violet-800" } },
+                    { text: "Loki / Pomtail", description: "Configurations to deploy Loki", link: "https://github.com/jordansmith04/k8s-observability-stack/tree/main/loki", colors: { bg: "bg-teal-100", text: "text-teal-800" } },
+                    { text: "Grafana / Prometheus", description: "Grafana dashboard and log aggregation configurations", link: "https://github.com/jordansmith04/k8s-observability-stack/tree/main", colors: { bg: "bg-yellow-100", text: "text-yellow-800" } }
+                ]
+            },
+            {
+                title: "5. Ansible Infrastructure Automation",
+                repo: "ansible-infra",
+                description: "Automated EC2 provisioning and configuration with Ansible playbooks, enabling reproducible server setup and secure secrets management using Ansible Vault.",
+                primaryColor: "teal",
+                artifacts: [
+                    { text: "Ansible playbooks", description: "Playbooks and roles for Docker, CloudWatch monitoring, and User access management", link: "https://github.com/jordansmith04/ansible-infra/tree/main/ansible", colors: { bg: "bg-teal-100", text: "text-teal-800" } },
+                    { text: "Dynamic AWS inventory", description: "AWS Plugin configs to dynamically filter EC2 instances", link: "https://github.com/jordansmith04/ansible-infra/blob/main/hosts/aws_ec2.yaml", colors: { bg: "bg-rose-100", text: "text-rose-800" } },
+                    { text: "Secrets encrypted with Ansible Vault", description: "Secrets files for user credentials and configurations", link: "https://github.com/jordansmith04/ansible-infra/tree/main/vars", colors: { bg: "bg-cyan-100", text: "text-cyan-800" } },
+                    { text: "README.md", description: "Repository readme", link: "https://github.com/project6/vault-setup", colors: { bg: "bg-orange-100", text: "text-orange-800" } }
+                ]
+            },
+            {
+                title: "6. Multi-Environment Cloud Deployment with Governance",
+                repo: "multi-env-cloud-deployment",
+                description: "Built secure, isolated multi-environment AWS deployments using Terraform workspaces, Gitlab CI, and AWS Budgets for cost visibility and governance.",
+                primaryColor: "yellow",
+                artifacts: [
+                    { text: "Terraform workspaces for each environment", description: "Dev, Stage, and Production environments", link: "https://github.com/jordansmith04/multi-env-cloud-deployment/tree/main/terraform/environments", colors: { bg: "bg-orange-100", text: "text-orange-800" } },
+                    { text: "Gitlab CI for per-environment deployment", description: "Uses job templating for reusability", link: "https://github.com/jordansmith04/multi-env-cloud-deployment/blob/main/.gitlab-ci.yml", colors: { bg: "bg-sky-100", text: "text-sky-800" } },
+                    { text: "Cost alerts via AWS Budgets and SNS", description: "Managed through Terraform module", link: "https://github.com/jordansmith04/multi-env-cloud-deployment/blob/main/terraform/modules/governance/main.tf", colors: { bg: "bg-emerald-100", text: "text-emerald-800" } },
+                    { text: "ECS and IAM policies", description: "Creation of Fargate, ECS and access policies", link: "https://github.com/jordansmith04/multi-env-cloud-deployment/blob/main/terraform/modules/app-service/main.tf", colors: { bg: "bg-red-100", text: "text-red-800" } }
+                ]
+            }
+        ];
 
-		<!-- Main -->
-		<div id="main">
-			<!-- <div class="image main" data-position="center">
-				<img src="images/office2.jpeg" alt="" />
-			</div> -->
+        const planned_projects = [
+            // Future projects can be added here
+            {
+                title: "7. Chaos & Reliability Engineering",
+                repo: "chaos-reliability-engineering",
+                description: "Conducted chaos and load tests using Chaos Mesh/Gremlin and k6 to validate system resilience, improving mean time to recovery via automation.",
+                primaryColor: "violet",
+                artifacts: [
+                    { text: "Use Chaos Mesh or Gremlin to inject faults", link: "https://github.com/project5/chaos-scripts", colors: { bg: "bg-violet-100", text: "text-violet-800" } },
+                    { text: "Load test with k6", link: "https://github.com/project5/k6-scripts", colors: { bg: "bg-indigo-100", text: "text-indigo-800" } },
+                    { text: "Prometheus alerts and Grafana dashboards for SLOs", link: "https://github.com/project5/slo-alerts", colors: { bg: "bg-orange-100", text: "text-orange-800" } },
+                    { text: "Write a postmortem and recovery automation", link: "https://github.com/project5/postmortem-doc", colors: { bg: "bg-pink-100", text: "text-pink-800" } }
+                ]
+            },{
+                title: "8. Infrastructure Security Scanning",
+                repo: "infra-security-scanning",
+                description: "Integrated automated security scanning (Trivy, Bandit) into the CI pipeline to check Docker images and application code before deployment.",
+                primaryColor: "rose",
+                artifacts: [
+                    { text: "CI Stage: Container Scan (Trivy)", link: "https://github.com/project8/trivy-config", colors: { bg: "bg-rose-100", text: "text-rose-800" } },
+                    { text: "CI Stage: SAST (Bandit)", link: "https://github.com/project8/bandit-config", colors: { bg: "bg-violet-100", text: "text-violet-800" } },
+                    { text: "Vulnerability Report Example", link: "https://github.com/project8/vulnerability-report", colors: { bg: "bg-gray-200", text: "text-gray-800" } }
+                ]
+            },
+            {
+                title: "9. Advanced GitOps with ArgoCD",
+                repo: "advanced-gitops-argocd",
+                description: "Implemented a complete GitOps workflow using ArgoCD to manage application state and configuration drift across development and production environments.",
+                primaryColor: "orange",
+                artifacts: [
+                    { text: "ArgoCD App-of-Apps Structure", link: "https://github.com/project9/argocd-apps", colors: { bg: "bg-purple-100", text: "text-purple-800" } },
+                    { text: "Kustomize Overlay Configs", link: "https://github.com/project9/kustomize-overlays", colors: { bg: "bg-lime-100", text: "text-lime-800" } },
+                    { text: "Pull Request Automation Script", link: "https://github.com/project9/pr-automation", colors: { bg: "bg-fuchsia-100", text: "text-fuchsia-800" } }
+                ]
+            },
+            {
+                title: "10. Automated Disaster Recovery Plan (DR)",
+                repo: "automated-dr-plan",
+                description: "Developed and tested failover procedures using cloud services (AWS RDS Multi-AZ, S3 CRR) to meet stringent RTO/RPO targets.",
+                primaryColor: "blue",
+                artifacts: [
+                    { text: "DR Scenario Runbook", link: "https://github.com/project10/dr-runbook", colors: { bg: "bg-blue-100", text: "text-blue-800" } },
+                    { text: "Failover Terraform Code", link: "https://github.com/project10/failover-tf", colors: { bg: "bg-amber-100", text: "text-amber-800" } },
+                    { text: "RTO/RPO Measurement Data", link: "https://github.com/project10/rto-rpo-metrics", colors: { bg: "bg-red-100", text: "text-red-800" } }
+                ]
+            },
+        ];
 
-			<!-- #4acaa8 -->
-			<!-- <section id="about">
-				<div class="container">
-					<header class="major">
-						<h2>Hi! Welcome!</h2>
-					</header>
-				</div>
-			</section> -->
+        let currentPage = 'portfolio'; // Default page
 
+        // --- Core Page Rendering & Navigation Functions ---
 
-			<!-- One -->
-			<section id="about">
-				<div class="container">
-					<header class="major">
-						<h3>About Me</h3>
-						<p>DevOps, Development, Performance, and Automation</p>
-					</header>
-					<p>
-						I began my career as an automation test engineer at Comcast. After excelling in that role, I
-						moved into performance testing, where I developed a UI and infrastructure performance framework
-						that sparked my passion for development. I continued this path at Icon and Charter
-						Communications, expanding into cloud and DevOps. Earning a degree in Cloud Computing deepened
-						that passion. Throughout my career, I’ve had the opportunity to lead teams and initiatives at
-						every company I’ve worked for. 
-						</p>
-						<p>Today, I focus on adopting new technologies, improving DevOps
-						workflows, and driving impact across teams. My diverse experience enables me to streamline the
-						software development lifecycle from end to end—automating wherever possible and continuously
-						seeking ways to reduce infrastructure costs.
-					</p>
-				</div>
-			</section>
+        /**
+         * Navigates to a new page, updates the content, and updates the URL hash.
+         * @param {string} pageId - The ID of the page to navigate to (e.g., 'portfolio').
+        **/
+        const navigate = (pageId) => {
+            currentPage = pageId;
+            // Use history.pushState to make the URL reflect the current view without reloading
+            history.pushState(null, '', `#${pageId}`); 
+            renderPage();
+            updateNavigation(pageId);
+        };
 
-			<!-- Two -->
-			<section id="skills">
-				<div class="container">
-					<h3>Skills</h3>
-					<div class="flex-container">
-						<div id="development" class="development flex-item">
-							<h4 class="development">Development</h4>
-							<ul class="development">
-								<li>Java</li>
-								<li>Python</li>
-								<li>Relational and Document DBs</li>
-								<li>Swagger</li>
-								<li>GraphQL</li>
-								<li>Microservices</li>
-								<li>Unit and integration testing</li>
-								<li>Automation testing</li>
-							</ul>
-						</div>
-						<div id="devops" class="devops flex-item">
-							<h4 class="devops">DevOps</h4>
-							<ul class="devops">
-								<li>AWS</li>
-								<li>Kubernetes</li>
-								<li>Docker</li>
-								<li>Ansible</li>
-								<li>Terraform</li>
-								<li>Bash / Python scripting</li>
-								<li>Linux Administration</li>
-								<li>Automation</li>
-							</ul>
-						</div>
-					</div>
-					<div class="flex-container">
-						<div id="monitoring" class="monitoring flex-item">
-							<h4 class="monitoring">Monitoring / Analysis</h4>
-							<ul class="monitoring">
-								<li>Splunk</li>
-								<li>DataDog</li>
-								<li>Grafana</li>
-								<li>AWS CloudWatch</li>
-								<li>AWS CloudTrail</li>
-								<li>AWS Config</li>
-								<br>
-							</ul>
-						</div>
-						<div id="cicd" class="cicd flex-item">
-							<h4 class="cicd">CI/CD</h4>
-							<ul class="cicd">
-								<li>Github Actions</li>
-								<li>Gitlab CI</li>
-								<li>Jenkins</li>
-								<li>AWS CodeBuild</li>
-								<li>AWS CodeDeploy</li>
-								<li>AWS CodePipeline</li>
-								<li>Git</li>
-							</ul>
-						</div>
-					</div>
-					<div class="flex-container">
-						<div id="architectures" class="architectures flex-item">
-							<h4 class="architectures">Architectures</h4>
-							<ul class="architectures">
-								<li>Software as a service</li>
-								<li>Microservices</li>
-								<li>Monolith</li>
-								<li>FedRAMP / GovCloud</li>
-								<br>
-								<br>
-							</ul>
-						</div>
-						<div id="soft-skills" class="soft-skills flex-item">
-							<h4 class="soft-skills">Soft skills</h4>
-							<ul class="soft-skills">
-								<li>Team player</li>
-								<li>Mentor</li>
-								<li>Result Deliverer</li>
-								<li>Coffee drinker</li>
-								<li>Parent</li>
-								<li>Cute dog pictures</li>
-							</ul>
-						</div>
-					</div>
-			</section>
-
-			<!-- Three -->
-			<section id="certs">
-				<div class="container">
-					<h3>Education</h3>
-					<p>Bachelors of Science - Cloud Computing <br>
-						Western Governors University (2021)</p>
-					<br>
-					<h3>Certifications</h3>
-					<ul>
-						<li>AWS Certified DevOps Engineer - Professional</li>
-						<li>AWS Solutions Architect - Associate</li>
-						<li>Certified Kubernetes Application Developer (CKAD)</li>
-						<li>LPI Linux Certified Administrator</li>
-						<li>CompTIA Security+</li>
-						<li>CompTIA Network+</li>
-						<li>CompTIA A+</li>
-						<li>EC-Council Certified Encryption Specialist</li>
-					</ul>
-				</div>
-			</section>
-
-			<!-- Four -->
-			<section id="employment">
-				<div class="container">
-					<h3>Employment History</h3>
-					<div id="timeline"></div> <!-- Placeholder for the JavaScript array -->
-				</div>
-			</section>
-
-			<!-- Five -->
-			<section id="contact">
-				<div class="container">
-					<h3>Contact Me</h3>
-					<p>Thank you for taking the time to read about me! Please reach out. I'd love to hear from you.</p>
-					<p id="email_text"></p>
-					<ul class="icons">
-						<li><a class="icon solid fa-download" id="resume" href="" download> Download
-								resume?</a></li>
-						<li><a id="email-link" class="icon solid fa-envelope" href="mailto:" target=”_blank”> Email
-								me!</a></li>
-						<li><a href="" id="github-link" class="icon brands fa-github" target=”_blank”> Github</a>
-						</li>
-						<li><a href="" id="linkedin-link" class="icon brands fa fa-linkedin-square" target=”_blank”>
-								LinkedIn</a></li>
-						</li>
-					</ul>
-				</div>
-			</section>
-		</div>
-
-		<!-- Footer -->
-		<footer class="site-footer">
-			<div class="container">
-				<p>&copy; 2025 Jordan Smith. Built with HTML5 & CSS3.</p>
-			</div>
-		</footer>
+        /**
+         * Updates the visual style of the navigation links.
+         * @param {string} activePageId - The ID of the currently active page.
+         */
+        const updateNavigation = (activePageId) => {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            // Find the button that navigates to the activePageId
+            const activeLink = Array.from(document.querySelectorAll('.nav-link')).find(btn => 
+                btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${activePageId}'`)
+            );
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        };
 
 
-		<!-- Five -->
-		<!-- 
-			<section id="five">
-				<div class="container">
-					<h3>Elements</h3>
+        /**
+         * Renders the appropriate page content based on the currentPage state.
+         */
+        const renderPage = () => {
+            const contentArea = document.getElementById('content-area');
+            contentArea.innerHTML = ''; // Clear existing content
+            window.scrollTo(0, 0); // Scroll to top on page switch
 
-					<section>
-						<h4>Text</h4>
-						<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is
-							<em>emphasized</em>.
-							This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-							This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a
-								href="#">this is a link</a>.
-						</p>
-						<hr />
-						<header>
-							<h4>Heading with a Subtitle</h4>
-							<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-						</header>
-						<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi
-							integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia
-							sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-						<header>
-							<h5>Heading with a Subtitle</h5>
-							<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-						</header>
-						<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi
-							integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia
-							sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-						<hr />
-						<h2>Heading Level 2</h2>
-						<h3>Heading Level 3</h3>
-						<h4>Heading Level 4</h4>
-						<h5>Heading Level 5</h5>
-						<h6>Heading Level 6</h6>
-						<hr />
-						<h5>Blockquote</h5>
-						<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget
-							tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu
-							felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in
-							faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-						<h5>Preformatted</h5>
-						<pre><code>i = 0;
+            let contentHTML = '';
 
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
+            switch (currentPage) {
+                case 'contact':
+                    contentHTML = renderContact();
+                    break;
+                case 'resume':
+                    contentHTML = renderResume();
+                    break;
+                case 'work_experience':
+                    contentHTML = renderWorkExperience();
+                    break;
+                case 'about_me':
+                    contentHTML = renderAboutMe();
+                    break;
+                case 'portfolio':
+                default:
+                    contentHTML = renderPortfolio();
+                    break;
+            }
 
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-					</section>
+            contentArea.innerHTML = contentHTML;
 
-					<section>
-						<h4>Lists</h4>
-						<div class="row">
-							<div class="col-6 col-12-xsmall">
-								<h5>Unordered</h5>
-								<ul>
-									<li>Dolor pulvinar etiam magna etiam.</li>
-									<li>Sagittis adipiscing lorem eleifend.</li>
-									<li>Felis enim feugiat dolore viverra.</li>
-								</ul>
-								<h5>Alternate</h5>
-								<ul class="alt">
-									<li>Dolor pulvinar etiam magna etiam.</li>
-									<li>Sagittis adipiscing lorem eleifend.</li>
-									<li>Felis enim feugiat dolore viverra.</li>
-								</ul>
-							</div>
-							<div class="col-6 col-12-xsmall">
-								<h5>Ordered</h5>
-								<ol>
-									<li>Dolor pulvinar etiam magna etiam.</li>
-									<li>Etiam vel felis at lorem sed viverra.</li>
-									<li>Felis enim feugiat dolore viverra.</li>
-									<li>Dolor pulvinar etiam magna etiam.</li>
-									<li>Etiam vel felis at lorem sed viverra.</li>
-									<li>Felis enim feugiat dolore viverra.</li>
-								</ol>
-								<h5>Icons</h5>
-								<ul class="icons">
-									<li><a href="#" class="icon brands fa-twitter"><span
-												class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands fa-facebook-f"><span
-												class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands fa-instagram"><span
-												class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a>
-									</li>
-									<li><a href="#" class="icon brands fa-dribbble"><span
-												class="label">Dribbble</span></a></li>
-									<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<h5>Actions</h5>
-						<ul class="actions">
-							<li><a href="#" class="button primary">Default</a></li>
-							<li><a href="#" class="button">Default</a></li>
-							<li><a href="#" class="button alt">Default</a></li>
-						</ul>
-						<ul class="actions small">
-							<li><a href="#" class="button primary small">Small</a></li>
-							<li><a href="#" class="button small">Small</a></li>
-							<li><a href="#" class="button alt small">Small</a></li>
-						</ul>
-						<div class="row">
-							<div class="col-3 col-6-medium col-12-xsmall">
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary">Default</a></li>
-									<li><a href="#" class="button">Default</a></li>
-									<li><a href="#" class="button alt">Default</a></li>
-								</ul>
-							</div>
-							<div class="col-3 col-6 col-12-xsmall">
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary small">Small</a></li>
-									<li><a href="#" class="button small">Small</a></li>
-									<li><a href="#" class="button alt small">Small</a></li>
-								</ul>
-							</div>
-							<div class="col-3 col-6-medium col-12-xsmall">
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary fit">Default</a></li>
-									<li><a href="#" class="button fit">Default</a></li>
-									<li><a href="#" class="button alt fit">Default</a></li>
-								</ul>
-							</div>
-							<div class="col-3 col-6-medium col-12-xsmall">
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary small fit">Small</a></li>
-									<li><a href="#" class="button small fit">Small</a></li>
-									<li><a href="#" class="button alt small fit">Small</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
+            // SPECIAL CASE: Portfolio needs project cards rendered dynamically after HTML insertion
+            if (currentPage === 'portfolio') {
+                renderProjectCards(completed_projects, 'projects-container');
+                renderProjectCards(planned_projects, 'projects-container2');
+            }
+        };
 
-					<section>
-						<h4>Table</h4>
-						<h5>Default</h5>
-						<div class="table-wrapper">
-							<table>
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Price</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Item One</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Two</td>
-										<td>Vis ac commodo adipiscing arcu aliquet.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Three</td>
-										<td> Morbi faucibus arcu accumsan lorem.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Four</td>
-										<td>Vitae integer tempus condimentum.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Five</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-								</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="2"></td>
-										<td>100.00</td>
-									</tr>
-								</tfoot>
-							</table>
-						</div>
+        // --- Utility Functions for Content Blocks ---
 
-						<h5>Alternate</h5>
-						<div class="table-wrapper">
-							<table class="alt">
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Price</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Item One</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Two</td>
-										<td>Vis ac commodo adipiscing arcu aliquet.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Three</td>
-										<td> Morbi faucibus arcu accumsan lorem.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Four</td>
-										<td>Vitae integer tempus condimentum.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Five</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-								</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="2"></td>
-										<td>100.00</td>
-									</tr>
-								</tfoot>
-							</table>
-						</div>
-					</section>
+        const renderHeader = (title, subtitle, color = 'indigo') => `
+            <header class="text-center pb-8 md:pb-10 mb-10 border-b-4 border-${color}-200">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                    ${title}
+                </h1>
+                <p class="mt-3 text-lg sm:text-xl text-gray-500 font-medium">${subtitle}</p>
+            </header>
+        `;
 
-					<section>
-						<h4>Buttons</h4>
-						<ul class="actions">
-							<li><a href="#" class="button primary">Primary</a></li>
-							<li><a href="#" class="button">Default</a></li>
-							<li><a href="#" class="button alt">Alternate</a></li>
-						</ul>
-						<ul class="actions">
-							<li><a href="#" class="button primary large">Large</a></li>
-							<li><a href="#" class="button">Default</a></li>
-							<li><a href="#" class="button alt small">Small</a></li>
-						</ul>
-						<ul class="actions fit">
-							<li><a href="#" class="button primary fit">Fit</a></li>
-							<li><a href="#" class="button fit">Fit</a></li>
-							<li><a href="#" class="button alt fit">Fit</a></li>
-						</ul>
-						<ul class="actions fit small">
-							<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-							<li><a href="#" class="button fit small">Fit + Small</a></li>
-							<li><a href="#" class="button alt fit small">Fit + Small</a></li>
-						</ul>
-						<ul class="actions">
-							<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-							<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-							<li><a href="#" class="button alt icon solid fa-check">Icon</a></li>
-						</ul>
-						<ul class="actions">
-							<li><span class="button primary disabled">Primary</span></li>
-							<li><span class="button disabled">Default</span></li>
-							<li><span class="button alt disabled">Alternate</span></li>
-						</ul>
-					</section>
+        const renderProjectCards = (projects, containerId) => {
+            const container = document.getElementById(containerId);
+            if (!container) return; 
+    
+            projects.forEach((project) => {
+                const projectSection = document.createElement('section');
+                projectSection.className = 'project-section mt-8 mb-8'; 
+                
+                if(containerId === 'projects-container2') {
+                   
+                    projectSection.innerHTML = `
+                        <div class="border-b-4 border-${project.primaryColor}-500 pb-4 mb-6">
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-${project.primaryColor}-700">${project.title}</h2>
+                            <p class="mt-2 text-base sm:text-lg text-gray-600">${project.description}</p>
+                        </div>
+                    `;
+                    container.appendChild(projectSection);
+                } else {
 
-					<section>
-						<h4>Form</h4>
-						<form method="post" action="#">
-							<div class="row gtr-uniform">
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<input type="email" name="demo-email" id="demo-email" value=""
-										placeholder="Email" />
-								</div>
-								<div class="col-12">
-									<select name="demo-category" id="demo-category">
-										<option value="">- Category -</option>
-										<option value="1">Manufacturing</option>
-										<option value="1">Shipping</option>
-										<option value="1">Administration</option>
-										<option value="1">Human Resources</option>
-									</select>
-								</div>
-								<div class="col-4 col-12-medium">
-									<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-									<label for="demo-priority-low">Low Priority</label>
-								</div>
-								<div class="col-4 col-12-medium">
-									<input type="radio" id="demo-priority-normal" name="demo-priority">
-									<label for="demo-priority-normal">Normal Priority</label>
-								</div>
-								<div class="col-4 col-12-medium">
-									<input type="radio" id="demo-priority-high" name="demo-priority">
-									<label for="demo-priority-high">High Priority</label>
-								</div>
-								<div class="col-6 col-12-medium">
-									<input type="checkbox" id="demo-copy" name="demo-copy">
-									<label for="demo-copy">Email me a copy of this message</label>
-								</div>
-								<div class="col-6 col-12-medium">
-									<input type="checkbox" id="demo-human" name="demo-human" checked>
-									<label for="demo-human">I am a human and not a robot</label>
-								</div>
-								<div class="col-12">
-									<textarea name="demo-message" id="demo-message" placeholder="Enter your message"
-										rows="6"></textarea>
-								</div>
-								<div class="col-12">
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" /></li>
-										<li><input type="reset" value="Reset" class="alt" /></li>
-									</ul>
-								</div>
-							</div>
-						</form>
-					</section>
+                    projectSection.innerHTML = `
+                    <div class="border-b-4 border-${project.primaryColor}-500 pb-4 mb-6">
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-${project.primaryColor}-700">${project.title}</h2>
+                        <p class="mt-2 text-base sm:text-lg text-gray-600">${project.description}</p>
+                        <a href="https://github.com/jordansmith04/${project.repo}/tree/main" target="_blank" class="mt-3 inline-block text-sm font-semibold text-${project.primaryColor}-600 hover:text-${project.primaryColor}-800 transition duration-150 group">
+                            View Repository 
+                            <svg class="w-4 h-4 inline-block ml-1 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                    `;
 
-					<section>
-						<h4>Image</h4>
-						<h5>Fit</h5>
-						<span class="image fit"><img src="images/banner.jpg" alt="" /></span>
-						<div class="box alt">
-							<div class="row gtr-50 gtr-uniform">
-								<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
-								</div>
-								<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
-								</div>
-								<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span>
-								</div>
-								<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
-								</div>
-								<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span>
-								</div>
-								<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
-								</div>
-								<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span>
-								</div>
-								<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
-								</div>
-								<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
-								</div>
-							</div>
-						</div>
-						<h5>Left &amp; Right</h5>
-						<p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec
-							accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante
-							ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac
-							adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis
-							eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit
-							adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac
-							pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
-							tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu
-							felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent
-							tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus
-							vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus.
-							Integer ac pellentesque praesent.</p>
-						<p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec
-							accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante
-							ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac
-							adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis
-							eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit
-							adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac
-							pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
-							tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu
-							felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent
-							tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus
-							vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus.
-							Integer ac pellentesque praesent.</p>
-					</section>
+                    const artifactsGrid = document.createElement('div');
+                    artifactsGrid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'; 
 
-				</div>
-			</section> -->
+                    project.artifacts.forEach((artifact) => {
+                        const tile = document.createElement('div');
+                        const tileBg = artifact.colors.bg; 
+                        const tileText = artifact.colors.text; 
+                        const ringColor = `hover:ring-${project.primaryColor}-300`;
 
-	</div>
+                        tile.className = `${tileBg} p-6 rounded-xl shadow-md transition duration-300 hover:shadow-xl hover:scale-[1.02] flex flex-col h-full ring-2 ring-transparent ${ringColor} cursor-pointer`;
+                        
+                        tile.innerHTML = `
+                            <h3 class="text-xl font-bold ${tileText} mb-2">${artifact.text}</h3>
+                            <p class="mt-1 text-sm text-gray-700 flex-grow">${artifact.description}</p>
+                            <a href="${artifact.link}" target="_blank" class="mt-4 inline-block text-sm font-semibold ${tileText} hover:opacity-75 transition duration-150 group">
+                                View Code 
+                                <svg class="w-3 h-3 inline-block ml-1 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </a>
+                        `;
+                        artifactsGrid.appendChild(tile);
+                    });
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-	<script src="assets/js/script.js"></script>
-	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+                    projectSection.appendChild(artifactsGrid);
+                    container.appendChild(projectSection);
+                }
+            });
+        }
+        
+        // --- Page Content Templates (Full HTML for each "page") ---
+
+        const renderPortfolio = () => `
+            ${renderHeader("Jordan Smith's Portfolio", "Infrastructure as Code, CI/CD, and Observability Projects")}
+            <main>
+                <h2 class="text-4xl font-extrabold text-gray-700 mb-2">Completed Projects</h2>
+                <p class="mt-2 text-lg text-gray-500 mb-8">Detailed exploration of my proven capabilities in cloud infrastructure and automation.</p>
+                <div id="projects-container" class="space-y-16"></div> 
+
+                <div class="mt-20 pt-8 border-t-2 border-gray-200">
+                    <h2 class="text-4xl font-extrabold text-gray-700 mb-2">Planned Projects</h2>
+                    <p class="mt-2 text-lg text-gray-500">Projects currently in the pipeline to be completed soon!</p>
+                </div>
+                
+                <div id="projects-container2" class="space-y-16 mt-8"></div> 
+            </main>
+        `;
+
+        const renderResume = () => `
+            ${renderHeader("My Resume & Credentials", "Technical skills, certifications, and educational background.", 'red')}
+            
+            <div class="space-y-8">
+                <div class="p-6 bg-red-50 rounded-xl shadow-lg flex items-center justify-between flex-wrap">
+                    <p class="text-lg font-semibold text-red-700">Need a printable version of my qualifications and experience?</p>
+                    <a href="./Jordan_Smith_Resume.pdf" target="_blank" class="mt-4 sm:mt-0 px-6 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition duration-300 shadow-md flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        Download Resume (PDF)
+                    </a>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-800 border-b pb-2 mb-4">Certifications</h2>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <li class="p-4 bg-indigo-100 text-indigo-800 rounded-xl shadow-md transform hover:scale-[1.02] transition duration-300">
+                        <span class="text-lg font-semibold">AWS DevOps Engineer - Professional</span> 
+                        <span class="text-sm opacity-90">Achieved: 2024</span>
+                    </li>
+                     <li class="p-4 bg-indigo-100 text-indigo-800 rounded-xl shadow-md transform hover:scale-[1.02] transition duration-300">
+                        <span class="text-lg font-semibold">Certified Kubernetes Application Developer</span> 
+                        <span class="text-sm opacity-90">Achieved: 2023</span>
+                    </li>
+                    <li class="p-4 bg-indigo-100 text-indigo-800 rounded-xl shadow-md transform hover:scale-[1.02] transition duration-300">
+                        <span class="text-lg font-semibold">LPI Linux Certified Administrator</span> 
+                        <span class="text-sm opacity-90">Achieved: 2022</span>
+                    </li>
+                    <li class="p-4 bg-indigo-100 text-indigo-800 rounded-xl shadow-md transform hover:scale-[1.02] transition duration-300">
+                        <span class="text-lg font-semibold">CompTIA Security+ / Network+ / A+</span> 
+                        <span class="text-sm opacity-90">Achieved: 2022</span>
+                    </li>
+                     <li class="p-4 bg-indigo-100 text-indigo-800 rounded-xl shadow-md transform hover:scale-[1.02] transition duration-300">
+                        <span class="text-lg font-semibold">AWS Solutions Architect - Associate</span> 
+                        <span class="text-sm opacity-90">Achieved: 2020</span>
+                    </li>
+                </ul>
+                
+                <h2 class="text-3xl font-bold text-gray-800 border-b pb-2 mb-4 mt-8">Education</h2>
+                <ul class="space-y-3 text-gray-700">
+                    <li><b>Western Governors University</b> - BS in Cloud Computing (2022)</li>
+                    <li><b>Central Washington University</b> - BS in Social Sciences (2013)</li>
+                </ul>
+
+                <h2 class="text-3xl font-bold text-gray-800 border-b pb-2 mb-4 mt-8">Core Technical Skills</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Group 1: Cloud & DevOps -->
+                    <div class="p-4 bg-indigo-50 rounded-xl shadow-md">
+                        <h4 class="text-xl font-bold text-indigo-700 mb-3 border-b border-indigo-200 pb-1">Cloud & DevOps</h4>
+                        <ul class="list-disc ml-5 text-gray-700 text-base space-y-1">
+                            <li>AWS, Automation</li>
+                            <li>Cloud Optimization, Cost Reduction</li>
+                            <li>FedRamp, HIPAA, GovCloud</li>
+                            <li>High Availability, Disaster Recovery</li>
+                            <li>Security Best Practices</li>
+                            <li>Multi-environment deployment</li>
+                        </ul>
+                    </div>
+
+                    <!-- Group 2: IaC & Orchestration -->
+                    <div class="p-4 bg-sky-50 rounded-xl shadow-md">
+                        <h4 class="text-xl font-bold text-sky-700 mb-3 border-b border-sky-200 pb-1">IaC & Orchestration</h4>
+                        <ul class="list-disc ml-5 text-gray-700 text-base space-y-1">
+                            <li><b>IaC:</b> Terraform, CloudFormation, Ansible, Packer, scripted pipelines</li>
+                            <li><b>Containerization:</b> Docker, ContainerD</li>
+                            <li><b>Orchestration Tools:</b> Kubernetes, Helm</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Group 3: CI/CD & Monitoring -->
+                    <div class="p-4 bg-emerald-50 rounded-xl shadow-md">
+                        <h4 class="text-xl font-bold text-emerald-700 mb-3 border-b border-emerald-200 pb-1">CI/CD & Monitoring</h4>
+                        <ul class="list-disc ml-5 text-gray-700 text-base space-y-1">
+                            <li><b>CI/CD Tools:</b> Jenkins, Github Actions, Gitlab CI, AWS Pipelines</li>
+                            <li><b>Monitoring:</b>Prometheus, Grafana, Datadog, CloudWatch</li>
+                            <li><b>Log Aggregation:</b>Splunk, Loki</li>
+                            <li><b>Load Testing:</b> Locust, JMeter</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Group 4: Programming & Data -->
+                    <div class="p-4 bg-rose-50 rounded-xl shadow-md md:col-span-1 lg:col-span-3">
+                        <h4 class="text-xl font-bold text-rose-700 mb-3 border-b border-rose-200 pb-1">Programming Languages & Data</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-1">
+                             <ul class="list-disc ml-5 text-gray-700 text-base space-y-1 lg:col-span-2">
+                                <li><b>Development Languages:</b> Java, Python, Golang</li>
+                                <li><b>Scripting Languages:</b> Bash, Groovy, Python</li>
+                            </ul>
+                            <ul class="list-disc ml-5 text-gray-700 text-base space-y-1 lg:col-span-2">
+                                <li><b>APIs:</b> Microservices</li>
+                                <li><b>Databases:</b> Relational DBs (MySQL and Postgres), GraphQL, Apollo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        const renderWorkExperience = () => `
+            ${renderHeader("Professional Experience Timeline", "Key roles, achievements, and contributions to engineering teams.", 'emerald')}
+            
+            <div class="relative border-l border-gray-300 ml-4 sm:ml-6">
+
+                <!-- Peraton -->
+                <div class="mb-10 ml-6">
+                    <div class="absolute w-3 h-3 bg-emerald-500 rounded-full mt-1.5 -left-1.5 border border-white ring-8 ring-emerald-100"></div>
+                    <p class="mb-1 text-sm font-normal leading-none text-gray-500">Apr 2023 - Present</p>
+                    <h3 class="text-xl font-semibold text-gray-900">Senior Cloud Engineer</h3>
+                    <p class="text-base font-medium text-emerald-700 mb-2">Peraton</p>
+                    <ul class="list-disc space-y-2 text-gray-700 ml-5">
+                        <li>Strengthened AWS infrastructure reliability and observability for a <b>SaaS platform</b> supporting the VA Million Veterans Program, improving performance, resilience, and system health visibility.</li>
+                        <li>Led performance testing and infrastructure optimization initiatives to meet strict <b>SLAs/SLOs</b>, enhancing throughput, scalability, and application responsiveness.</li>
+                        <li>Ensured secure handling of <b>PHI and HIPAA-protected data</b> through hardened access controls, <b>least-privilege IAM policies</b>, encrypted storage, backups, and cross-region replication strategies.</li>
+                        <li>Reduced CI/CD deployment times by <b>80%</b> through Jenkins pipeline optimization and lowered AWS cloud spend by <b>50%</b> via resource right-sizing, architectural improvements, and cost-efficiency initiatives.</li>
+                    </ul>
+                </div>
+
+                <!-- Charter Communications -->
+                <div class="mb-10 ml-6">
+                    <div class="absolute w-3 h-3 bg-emerald-500 rounded-full mt-1.5 -left-1.5 border border-white ring-8 ring-emerald-100"></div>
+                    <p class="mb-1 text-sm font-normal leading-none text-gray-500">Apr 2021 - Apr 2023</p>
+                    <h3 class="text-xl font-semibold text-gray-900">Backend / Platform Engineer</h3>
+                    <p class="text-base font-medium text-emerald-700 mb-2">Charter Communications</p>
+                    <ul class="list-disc space-y-2 text-gray-700 ml-5">
+                        <li>Enhanced and modernized microservices powering customer service appointments, remote diagnostics, and automated issue resolution, using <b>Java, Spring Boot, Apollo/GraphQL, Kafka, and Cassandra</b> to improve reliability and system responsiveness.</li>
+                        <li>Designed and implemented CI/CD pipelines using <b>GitLab CI, Helm, Bash, and AWS EKS</b>, enabling automated build, test, and deployment workflows across multiple environments with zero-downtime deployment patterns.</li>
+                        <li>Integrated and operationalized <b>Datadog and Splunk</b> for end-to-end observability, building dashboards, alerts, and log pipelines that improved incident detection and reduced MTTR.</li>
+                        <li>Led <b>production releases</b> and continuous monitoring efforts, collaborating with SRE, QA, and product teams to maintain high service availability and ensure seamless rollout of new platform features.</li>
+                    </ul>
+                </div>
+
+                <!-- ICON plc -->
+                <div class="mb-10 ml-6">
+                    <div class="absolute w-3 h-3 bg-emerald-500 rounded-full mt-1.5 -left-1.5 border border-white ring-8 ring-emerald-100"></div>
+                    <p class="mb-1 text-sm font-normal leading-none text-gray-500">Oct 2019 - Apr 2021</p>
+                    <h3 class="text-xl font-semibold text-gray-900">Backend Engineer</h3>
+                    <p class="text-base font-medium text-emerald-700 mb-2">ICON plc</p>
+                    <ul class="list-disc space-y-2 text-gray-700 ml-5">
+                        <li>Enhanced and maintained backend services for Merck’s clinical trials application tracking human growth hormone treatment, using <b>Java 17, Spring Boot, and PostgreSQL</b> to improve performance, reliability, and data integrity.</li>
+                        <li>Designed and implemented new REST APIs, database queries, and business logic, <b>optimizing data workflows and reducing latency</b> in critical trial participant and dosage tracking features.</li>
+                        <li><b>Led backlog refinement, sprint planning, and technical scoping sessions</b>, helping guide the team toward clearer requirements, better prioritization, and more predictable delivery outcomes.</li>
+                        <li>Collaborated with QA, product owners, and clinical domain experts to translate complex regulatory and scientific requirements into compliant, testable backend features that supported <b>FDA-aligned clinical research</b> workflows.</li>
+                    </ul>
+                </div>
+
+                <!-- Comcast -->
+                <div class="mb-10 ml-6">
+                    <div class="absolute w-3 h-3 bg-emerald-500 rounded-full mt-1.5 -left-1.5 border border-white ring-8 ring-emerald-100"></div>
+                    <p class="mb-1 text-sm font-normal leading-none text-gray-500">March 2018 - Oct 2019</p>
+                    <h3 class="text-xl font-semibold text-gray-900">Automation Team Lead</h3>
+                    <p class="text-base font-medium text-emerald-700 mb-2">Comcast</p>
+                    <ul class="list-disc space-y-2 text-gray-700 ml-5">
+                        <li><b>Led a team of three automation engineers</b> to design, build, and maintain end-to-end automated testing frameworks across multiple languages and environments supporting Comcast’s new Unified Chat Bot platform.
+                        <li>Developed and optimized CI/CD pipelines using <b>Azure DevOps</b> to ensure rapid, reliable test execution and continuous delivery across all chatbot services and microservice integrations.
+                        <li>Architected scalable automated test suites (API, UI, and integration) enabling consistent quality validation for chatbot interactions across web, mobile, and customer-support systems.
+                        <li>Collaborated cross-functionally with product, NLP/AI engineers, DevOps, and platform teams to define quality gates, streamline release workflows, and significantly reduce defects reaching production.
+                    </ul>
+                </div>
+            </div>
+        `;
+
+        const renderAboutMe = () => `
+            ${renderHeader("About Jordan Smith", "My journey, philosophy, and approach to Site Reliability and Cloud Engineering.", 'sky')}
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2 space-y-6 text-gray-700 text-lg">
+                    <h3 class="text-2xl font-bold text-gray-800">Cloud Engineer Summary</h3>
+                    <p>
+                        I'm Jordan, a <b>Cloud & Platform Engineer with 7+ years of experience</b> architecting, modernizing, and securing large-scale AWS infrastructures. I specialize in building highly automated, observable, and cost-efficient cloud environments that support mission-critical applications for enterprise and government programs.
+                    </p>
+
+                    <p>
+                        I have extensive hands-on experience designing and optimizing CI/CD pipelines, implementing <b>Infrastructure as Code (Terraform, Ansible)</b>, and driving cloud modernization efforts across diverse tech stacks. My work consistently delivers measurable impact—<b>80% faster deployments</b>, <b>50%+ cloud cost reductions</b>, and significant gains in reliability and performance.
+                    </p>
+
+                    <p>
+                        I excel at building secure, compliant architectures aligned with <b>FedRAMP, HIPAA, and PHI</b> requirements, and I approach engineering with a strong DevOps/SRE mindset focused on automation, resilience, observability, and operational excellence.
+                    </p>
+
+                    <h3 class="text-2xl font-bold text-gray-800 pt-4 border-t border-gray-100">Core Principles:</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="mr-3 text-sky-600 font-extrabold">✓</span> 
+                            <span class="flex-grow"><b>Cloud Optimization:</b> Deliver measurable efficiency gains, including achieving a <b>50% reduction in AWS spend</b> through architectural improvements, right-sizing, autoscaling strategies, and cost governance.</span>
+                        </li>
+
+                        <li class="flex items-start">
+                            <span class="mr-3 text-sky-600 font-extrabold">✓</span> 
+                            <span class="flex-grow"><b>High Availability & Resilience:</b> Design and enhance systems to ensure uptime, fault tolerance, disaster recovery readiness, and reliable performance across distributed environments.</span>
+                        </li>
+
+                        <li class="flex items-start">
+                            <span class="mr-3 text-sky-600 font-extrabold">✓</span> 
+                            <span class="flex-grow"><b>IaC & Automation:</b> Build secure, consistent infrastructure using Terraform, Ansible, Helm, and CI/CD pipelines, enabling <b>up to 80% faster deployments</b> and reducing manual operational overhead.</span>
+                        </li>
+
+                        <li class="flex items-start">
+                            <span class="mr-3 text-sky-600 font-extrabold">✓</span> 
+                            <span class="flex-grow"><b>Observability & Reliability Engineering:</b> Implement enterprise-grade monitoring with Datadog, Splunk, CloudWatch, and OpenTelemetry to ensure actionable insights, SLO alignment, and proactive reliability improvements.</span>
+                        </li>
+
+                        <li class="flex items-start">
+                            <span class="mr-3 text-sky-600 font-extrabold">✓</span> 
+                            <span class="flex-grow"><b>Security & Compliance:</b> Architect solutions that protect PHI and sensitive data by applying <b>least privilege</b>, secure networking, encryption, and adherence to standards like <b>FedRAMP</b> and <b>HIPAA</b>.</span>
+                        </li>
+                    </ul>
+
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="p-6 bg-sky-50 rounded-xl shadow-lg">
+                        <h4 class="text-xl font-bold text-sky-700 mb-3">Get In Touch (Spokane, WA)</h4>
+                        <p class="text-sm text-gray-600">I am always open to discussing new engineering challenges, cloud architecture, and opportunities.</p>
+                        <ul class="mt-4 space-y-2">
+                            <li><span class="text-gray-700 font-medium">(425) 408-2423</span></li>
+                            <li><a href="mailto:Jordan.asmith04@gmail.com" class="text-indigo-600 hover:text-indigo-800 transition duration-150 font-medium">Email: Jordan.asmith04@gmail.com</a></li>
+                            <li><a href="https://www.linkedin.com/in/jordan-asmith/" target="_blank" class="text-indigo-600 hover:text-indigo-800 transition duration-150 font-medium">LinkedIn Profile</a></li>
+                            <li><a href="https://jordansmith04.github.io/website/" target="_blank" class="text-indigo-600 hover:text-indigo-800 transition duration-150 font-medium">Personal Website</a></li>
+                            <li><a href="https://github.com/jordansmith04" target="_blank" class="text-indigo-600 hover:text-indigo-800 transition duration-150 font-medium">Github</a></li>
+                         </ul>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        const renderContact = () => `
+            ${renderHeader("Contact Jordan Smith", "I'd love to hear from you! Reach out for collaborations or inquiries.", 'purple')}
+            
+            <div class="max-w-2xl mx-auto space-y-8">
+                <p class="text-lg text-gray-700">Feel free to reach out to me via email or phone. I'm open to discussing new opportunities, collaborations, or any questions you may have about my work.</p>
+                
+                <div class="p-6 bg-purple-50 rounded-xl shadow-lg">
+                    <h4 class="text-xl font-bold text-purple-700 mb-3">Get In Touch</h4>
+                    <ul class="space-y-2">
+                        <li><span class="text-gray-700 font-medium">Phone: (425) 408-2423</span></li>
+                        <li><a href="mailto:jordan.asmith04@gmail.com" class="text-indigo-600 hover:text-indigo-800 transition duration-150 font-medium">Email: jordan.asmith04@gmail.com </a></li>
+                        <li><a href="https://www.linkedin.com/in/jordan-asmith/" target="_blank" class="text-indigo-600 hover:text-indigo-800 transition duration-150 font-medium">LinkedIn Profile</a></li>
+                        <li><a href="https://jordansmith04.github.io/website/" target="_blank" class="text-indigo-600 hover:text-indigo-800 transition duration-150 font-medium">Personal Website</a></li>
+                        <li><a href="https://github.com/jordansmith04" target="_blank" class="text-indigo-600 hover:text-indigo-800 transition duration-150 font-medium">Github</a></li>
+                    </ul>
+                </div>
+            </div>
+        `;
+
+
+        // --- Initialization Logic ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check URL hash to determine initial page load
+            const initialHash = window.location.hash.substring(1);
+            if (['resume', 'portfolio', 'work_experience', 'about_me', 'contact'].includes(initialHash)) {
+                currentPage = initialHash;
+            } else {
+                currentPage = 'portfolio'; // Default page
+            }
+            
+            // Render the initial page and set the navigation state
+            renderPage();
+            updateNavigation(currentPage);
+        });
+
+        // Handle browser back/forward buttons
+        window.onpopstate = () => {
+            const hash = window.location.hash.substring(1);
+            if (['resume', 'portfolio', 'work_experience', 'about_me', 'contact'].includes(hash)) {
+                currentPage = hash;
+                renderPage();
+                updateNavigation(currentPage);
+            } else {
+                // Handle case where user navigates back to index (no hash)
+                navigate('portfolio');
+            }
+        };
+
+    </script>
 </body>
-
 </html>
