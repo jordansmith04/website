@@ -51,14 +51,27 @@
                 </div>
                 <!-- Mobile Menu Button (Placeholder) -->
                 <div class="flex items-center sm:hidden">
-                    <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                        <!-- Icon Placeholder -->
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                        <!-- Hamburger Icon (Menu closed) -->
+                        <svg id="menu-icon-open" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                        <!-- X Icon (Menu open) -->
+                        <svg id="menu-icon-close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                     </button>
                 </div>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div class="sm:hidden hidden" id="mobile-menu">
+        <div class="pt-2 pb-3 space-y-1 border-t border-gray-100">
+            <button class="nav-link-mobile block w-full text-left px-4 py-2 text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150" onclick="navigate('resume')">Resume & Skills</button>
+            <button class="nav-link-mobile block w-full text-left px-4 py-2 text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150" onclick="navigate('work_experience')">Experience</button>
+            <button class="nav-link-mobile active block w-full text-left px-4 py-2 text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150" onclick="navigate('portfolio')">Portfolio</button>
+            <button class="nav-link-mobile block w-full text-left px-4 py-2 text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150" onclick="navigate('about_me')">About Me</button>
+            <button class="nav-link-mobile block w-full text-left px-4 py-2 text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150" onclick="navigate('contact')">Contact</button>
+        </div>
+    </div>
 
     <!-- Main Content Container (Content Swaps Here) -->
     <div id="content-area" class="w-full max-w-7xl bg-white shadow-2xl rounded-3xl p-6 sm:p-12 my-8 md:my-10">
@@ -197,6 +210,38 @@
         ];
 
         let currentPage = 'portfolio'; // Default page
+
+        // --- Mobile Menu Toggling Logic ---
+        const closeMobileMenu = () => {
+            const menu = document.getElementById('mobile-menu');
+            const menuOpenIcon = document.getElementById('menu-icon-open');
+            const menuCloseIcon = document.getElementById('menu-icon-close');
+
+            if (menu && menuOpenIcon && menuCloseIcon && !menu.classList.contains('hidden')) {
+                 // Only close if it's currently open
+                menu.classList.add('hidden');
+                menuOpenIcon.classList.remove('hidden');
+                menuCloseIcon.classList.add('hidden');
+            }
+        }
+        
+        const toggleMobileMenu = () => {
+            const menu = document.getElementById('mobile-menu');
+            const menuOpenIcon = document.getElementById('menu-icon-open');
+            const menuCloseIcon = document.getElementById('menu-icon-close');
+
+            if (menu.classList.contains('hidden')) {
+                // Show menu
+                menu.classList.remove('hidden');
+                menuOpenIcon.classList.add('hidden');
+                menuCloseIcon.classList.remove('hidden');
+            } else {
+                // Hide menu
+                menu.classList.add('hidden');
+                menuOpenIcon.classList.remove('hidden');
+                menuCloseIcon.classList.add('hidden');
+            }
+        };
 
         // --- Core Page Rendering & Navigation Functions ---
 
